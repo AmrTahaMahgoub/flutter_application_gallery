@@ -1,4 +1,4 @@
-import 'package:meta/meta.dart';
+
 import 'dart:convert';
 
 DataModel dataModelFromJson(String str) => DataModel.fromJson(json.decode(str));

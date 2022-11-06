@@ -1,7 +1,6 @@
 import 'dart:convert';
-
+import 'dart:developer';
 import 'package:flutter_application_gallery/models/user_model.dart';
-
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -25,8 +24,13 @@ class LoginApi {
     }
     var token = user.token;
     SharedPreferences pref = await SharedPreferences.getInstance();
-    pref.setString('Token', token);
-   // print(user.token.toString());
+    var mytoken = await pref.setString('Token', token);
+    var name = user.userModel.name;
+    log(name);
+
+    // SharedPreferences prefName = await SharedPreferences.getInstance();
+    // var UserName = await pref.setString('name', name);
+
     return user;
   }
 }
